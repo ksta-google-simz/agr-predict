@@ -1,0 +1,6 @@
+test_img/
+.venv/
+result/
+original/
+anon/
+fairface_label_val.csv
