@@ -67,3 +67,43 @@ If you wanna try to anonymize a image, make a folder named `test_img` and save y
 Now then, with running `one_file.py`, you can find the result in the terminal.
 
 (Please modify `img_path` according to the path of your image in `one_file.py` before run.)
+
+# AGR Prediction w/o label
+You can now perform AGR (Age, Gender, Race) prediction on datasets without labels. This feature leverages the DeepFace library to analyze differences in age, gender, and race between original and anonymized images.
+## Usage
+1. Prepare your original and anonymized images following this structure:
+```bash
+.
+├── celeb
+│   ├── original
+│   │   ├── 1.jpg
+│   │   ├── 2.jpg
+│   │   └── ...
+│   └── anon_10_102
+│       ├── 1.jpg
+│       ├── 2.jpg
+│       └── ...
+```
+- `original folder`: Contains the original images.
+
+- `anon_{param} folder`: Contains images anonymized with a specific hyperparameter setting (num_inference_steps, anonymization_degree).
+
+Run the following script to perform AGR predictions without labels:
+```bash
+python compare_agr_no_label.py
+```
+Ensure that you adjust the paths of `original_dir` and `anonymized_dir` in the script according to your dataset locations.
+
+## Results
+
+Upon executing the script, you will see the following results in the terminal:
+
+- Total number of images analyzed
+
+- Average absolute age difference, and proportions of age increase or decrease
+
+- Proportion of maintained gender and race
+
+- Detailed statistics of changes in gender and race (if applicable)
+
+This functionality allows accurate evaluation of anonymization performance even when labels are not provided.
